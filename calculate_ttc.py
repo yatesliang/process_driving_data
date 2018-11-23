@@ -152,11 +152,13 @@ def processById(metaData, infoData, infoSavePath, imageSavePath):
     events = []
     count = 0
     for item in metaData:
+        count = count + 1
+        print("进度:{0}%".format(round(count * 100 / len(metaData))), end="\r")
         if eventId == -1:
             eventId = item['eventId']
         if eventId != item['eventId']:
             if(len(eventList) == eventLength):
-                print(item['eventId'])
+                # print(item['eventId'])
                 # pass the event list to get the start and end point and we can find the front car
 
                 # preprocess the data
